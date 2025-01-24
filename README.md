@@ -51,7 +51,7 @@ A new line of development diverging from the main line. It allows:
 > Analogy: A branch is like a save point in a game. You can create a save point, try a risky move, and return to the save point if needed. Branches let you create save points on one branch and switch to another branch for independent work.
 
 # First Time Git Configurations Commands
-```
+```git
 # Access your current git configurations
 git config --list
 
@@ -70,7 +70,7 @@ git config --global merge.conflictstyle diff3
 ```
 
 # Setting Up Git on Various IDEs
-```
+```git
 # Atom
 git config --global core.editor "atom --wait"
 
@@ -98,10 +98,12 @@ install Git choosing all of the default options
 Once everything is installed, you should be able to run git on the command line. If it displays the usage information, then you're good to go!
 
 # Some Useful Terminal Commands
-`ls` - used to list files and directories
-`mkdir` - used to create a new directory
-`cd` - used to change directories
-`rm` - used to remove files and directories
+`ls` - Used to list files and directories
+`mkdir` - Used to create a new directory
+`cd` - Used to change directories
+`rm` - Used to remove files and directories
+`cd ..` - Go back one directory
+`cd ../..` - Go back two directories
 
 # Various Git Commands
 ## Git Init
@@ -137,13 +139,13 @@ Remember, other than the "hooks" directory, you shouldn't mess with pretty much 
 ## Git Clone
 `git clone` allows you to clone (copy) a remote repository to be loaded locally in your computer. Typically you write the URL after the command, i.e.
 
-```
+```git
 git clone < https://github.com/user/repository-name >
 ```
 
 When cloning a repository, a new directory named after the repository name found in repository's url is created to store all files related to the repository.  You can change the name of the directory by the following command
 
-```
+```git
 git clone < https://github.com/user/repository-name > < new-directory-name >
 ```
 
@@ -152,6 +154,155 @@ The `git status` will tell you what Git is thinking and the state of our reposit
 
 To run the command, simply run
 
-```
+```git
 git status
 ```
+
+## Git Log
+`git log` allows you to view the history of changes of your project.  You can see who makes commits, commentary of people making commits, push actions, and so on.
+
+To view the git log, simply type
+
+```git
+git log
+```
+
+Here are some helpful keys to navigate the log:
+
+- to scroll down, press `j` or $\downarrow$ to move down one line at a time
+- `d` to move by half the page screen
+- `f` to move by a whole page screen
+- to scroll up, press `k` or $\uparrow$ to move up one line at a time
+- `u` to move by half the page screen
+- `b` to move by a whole page screen
+- press `q` to quit out of the log (returns to the regular command prompt)
+
+Here are some important outputs of the log
+
+`SHA` - `git log` will display the complete `SHA` (commit ID) for every single commit. Each `SHA` is unique, so we don't really need to see the entire `SHA`.
+
+__Author__ - `git log` displays the commit author for every single commit! It could be different for other repositories that have multiple people collaborating together.
+
+__Commit date__ - By default, `git log` will display the date for each commit.
+
+__Commit message__ - This is one of the most important parts of a commit message...we usually always want to see this
+
+To view just the commit messages, you can type
+
+```git
+git log --oneline
+```
+
+###  git log --stat
+` git log --stat` provides a log of activity, but rather showing comments from each commit, it shows what files were changed, and how many lines were affected. `stat` is short for statistic.
+
+To execute this command, simply type
+
+```git
+ git log --stat
+```
+
+Each file that changes will be listed in the commit, followed by various plus and minus signs.
+
+- The number of plus signs indicate the number lines in the file that were added
+- The number of minus signs indicate the number lines in the file that were removed
+
+![](img/Git-Log-Stat-Commit-Example.png)
+
+### git log --patch
+`git log --patch` or `git log-p` for short, will display the actual file changes for each commit.
+
+![](img/Git-Log-Patch-Commit-Example.png)
+
+The line with `diff --git a/README.MD b/README.md` states that `README.MD` was changed and the `a` directory is the original file while the `b` directory is the new file.
+
+The `@@ -1,6 +1,6 @@` indicates shows what lines things were changed in.  In the first pair of numbers, -1 indicates lines were removed starting in line 1 and the log is showing 6 lines.
+
+The second pair of numbers indicate that starting from line 1, there was one line added and the log shows 6 lines.
+
+> Note:
+> Git reviews documents by line, so if a line was edited, git would indicate that the line was removed, then added back.
+
+You can also combine `git log -p --stat` to show the commit messages and the document changes.
+
+You can also reference specific SHA IDs to filter out commits by writing
+
+```git
+git log < insert commands > < SHA ID >
+```
+
+## Git Commits
+Below are some commands related to git commits
+
+### git add
+`git add` allows you to add files to the staging index.  To add files, simply type 
+
+```
+git add <file name>
+```
+
+To add specific files, you can list each file name a separate them by a single space.
+
+```
+git add <file one> <file two>
+```
+
+To add all files, you can simply type
+
+```
+git add .
+```
+
+### git rm --cached
+If you would like to remove a file from the staging index, you can type
+
+```
+git rm --cached <file name>
+```
+
+### git reset
+To remove all files from the staging index, type
+
+```
+git reset
+```
+
+To reset your local directory to the most the last commit, you can write 
+
+```
+git reset --hard
+```
+> Note:
+> By type `git reset --hard`, you will be altering the files in your directory and any chances that you made after your checkpoint will disappear.
+
+### git commit
+To make a commit, simply write 
+
+```
+git commit
+```
+
+This will then prompt you to write a commit message with a text editor
+
+> Note:
+> Commits require messages, so if you type nothing, then the commit is discarded.
+
+If you have a small commit and do not need to write a big message, you can write
+
+```
+git commit -m "My Small Message"
+```
+
+It is best practice to make commits in increments of small changes.  Do not make a commit that changes multiple components of a project.  You also want to keep commit messages short, so here are few dos and don'ts regarding commit messages.
+
+__Do__
+- do keep the message short (less than 60-ish characters)
+- do explain what the commit does (not how or why!)
+
+__Don'ts__
+- do not explain why the changes are made (more on this below)
+- do not explain how the changes are made (that's what git log -p is for!)
+- do not use the word "and"
+  - if you have to use "and", your commit message is probably doing too many changes - break the changes into separate commits
+
+A tip to come up with a good commit message is to finish the phrase '_This commit will..._". However you decide to finish that phrase, use that as your commit message
