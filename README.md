@@ -482,3 +482,24 @@ Once you've removed all lines with merge conflict indicators and have selected w
 > 
 > [How Conflicts Are Presented](https://git-scm.com/docs/git-merge#_how_conflicts_are_presented)
 
+## Git Amend
+If you made mistakes and commited those mistakes, you can trace back to the most recent commit and fix your mistakes by first updating the files in your directory, then typing
+
+```
+git commit --amend
+```
+
+This will allow you to update the most recent commit.  After your execute `git commit --amend`, a text editor will appear for you to update the git message.
+
+> Note:
+> Please make sure all files are placed onto the staging index before amending a commit since your local files will be overwritten if you complete executing the commit.
+
+
+## Git Revert
+Suppose you wanted to revert back to some commit and use that commit as the most updated version of your files.  You can do that by typing 
+
+```
+git revert <Commit SHA>
+```
+
+When executing `git revert`, git will first create a new commit that reverts your files back to the target commit and shows that the files were reverted, so any intermediate commits stay in the version controls tree.
