@@ -477,6 +477,7 @@ Git is using the merge conflict indicators to show you what lines caused the mer
 Once you've removed all lines with merge conflict indicators and have selected what heading you want to use, just save the file, add it to the staging index, and commit it! Just like with a regular merge, this will pop open your code editor for you to supply a commit message. Just like before, it's common to use the provided merge commit message, so after the editor opens, just close it to use the provided commit message.
 
 > __Resources about merge conflicts:__
-> *[Basic Merge Conflicts](https://git-scm.com/docs/git-merge#_how_conflicts_are_presented)
+> 
+> [Basic Merge Conflicts](https://git-scm.com/docs/git-merge#_how_conflicts_are_presented)
 > [How Conflicts Are Presented](https://git-scm.com/docs/git-merge#_how_conflicts_are_presented)
 
