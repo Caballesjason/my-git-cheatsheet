@@ -97,6 +97,14 @@ download the software for Mac
 install Git choosing all of the default options
 Once everything is installed, you should be able to run git on the command line. If it displays the usage information, then you're good to go!
 
+To set your default text editor for commits, type
+
+```
+git config --global core.editor "Your text editor"
+```
+
+The most basic one is nano, but you can also use vim.
+
 # Some Useful Terminal Commands
 `ls` - Used to list files and directories
 `mkdir` - Used to create a new directory
@@ -295,9 +303,11 @@ git commit -m "My Small Message"
 
 It is best practice to make commits in increments of small changes.  Do not make a commit that changes multiple components of a project.  You also want to keep commit messages short, so here are few dos and don'ts regarding commit messages.
 
-__Do__
+__Dos__
 - do keep the message short (less than 60-ish characters)
+- do keep the message on one line
 - do explain what the commit does (not how or why!)
+- do write what exactly you changed in the message
 
 __Don'ts__
 - do not explain why the changes are made (more on this below)
@@ -306,3 +316,167 @@ __Don'ts__
   - if you have to use "and", your commit message is probably doing too many changes - break the changes into separate commits
 
 A tip to come up with a good commit message is to finish the phrase '_This commit will..._". However you decide to finish that phrase, use that as your commit message
+
+If you decide that you want to write why you made a change in a commit, use the format below
+
+```
+This is my commit message describing what I changed
+
+This is the section where I will write why I made the changes.
+```
+
+> Note:
+> By leaving a space between your first line and the rest of your text in a commit message, when writing `git log --oneline`, you will only see the first line of the commit message.  This will make the logs cleaner to read.
+
+## .gitignore
+`.gitignore` is a file that tells you which files should be ignored in your version control.  By adding files into .gitignore, you can ignore them when tracking changes.
+
+To add a .gitignore file, just type the following in you command line
+
+```
+touch .gitignore
+```
+
+A .gitignore file will then appear in your directory in which you can open with any text editor and add files.
+
+### Globbing
+Let's say that you add 50 images to your project, but want Git to ignore all of them. Does this mean you have to list each and every filename in the .gitignore file? [Globbing](https://en.wikipedia.org/wiki/Glob_) lets you use special characters to match patterns/characters. In the .gitignore file, you can use the following:
+
+- blank lines can be used for spacing
+- `#` - marks line as a comment
+- `*` - matches 0 or more characters
+- `?`- matches 1 character
+- `[abc]` - matches a, b, or c
+- `**` - matches nested directories.  For example, a/**/z matches
+  - `a/z`
+  - `a/b/z`
+  - `a/b/c/z`
+
+So if all of the 50 images are JPEG images in the "samples" folder, we could add the following line to .gitignore to have Git ignore all 50 images.
+
+## Tagging, Branching
+### git tag
+__Git tags__ allow you to add a label to a commit.  This can be used when a commit was pushed and was considered to be some current version of your code.
+
+To write a tag to a commit, simply type
+
+```
+git tag -a <tag label> <Commit's SHA Number>
+
+# -a is short for "annotate"
+```
+
+To delete a tag, simply type
+
+```
+git tag -d <tag>
+
+# -d is short for "delete"
+```
+
+### git branch
+Branches allow you to work on the same project with different isolated environments!
+
+To list all branches in your repository, write 
+
+```
+git branch
+```
+
+To add a branch to your repository, simply write
+
+```
+git branch <Branch Name> <commit SHA>
+```
+
+The second value `<committ SHA>` determines what commit you would like to create a branch from.  If you don't supply a SHA for the branch, then the branch will be created on whatever commit you are currently are on.
+
+To delete a branch, simply type
+
+```
+git branch -d <Branch Name>
+
+# -d is short for delete
+```
+
+### git checkout
+`git checkout` allows you to move and work with the state of a directory for a some branch.
+
+To enter a branch to write code, write
+
+```
+git checkout <Branch Name>
+```
+
+When using `git checkout`.  The files in your local repository will automatically update, so be sure to commit any changes before checking out to another branch.
+
+You can view what branch you are on when writing `git branch`.  the branch with an asterisk is active branch.
+
+
+You can also create and checkout to a new branch at the same time using the following command
+
+```
+git checkout -b <New Branch Name> <Branch to create from> <commit SHA to create from>
+```
+
+To view all of you branches at once, you can write
+
+```
+git log --oneline --graph --all
+```
+
+## git merge
+To merge a branch into another, you simply type
+
+```
+git merge <Branch Name>
+```
+
+When merging two branches together, its important to note which branch is active.  This is because when you execute `git merge <Branch Name>`, it takes what ever branch you typed in `<Branch Name>` and merges it into the active branch.  For example, if `main` is the current branch, then
+
+```
+git merge <Feature One>
+```
+
+will take all changes from the branch `Feature One` and merge them into `main`.
+
+There are two types of merges
+
+__Fast-Forward Merge:__
+This occurs when the branch you want to merge into the active branch is ahead in commits.
+
+![](img/git.png)
+
+Suppose you wanted to merge `Commit A` into `HEAD`.  In this case, `Commit A` is behind in commits from `HEAD`, so it would have to "fast forward" to `HEAD`.
+
+__Regular Merge:__
+Now suppose you wanted to merge `Commit C` in `HEAD`.  This will be a normal merge since `Commit C` had diverged away from `HEAD` into a new branch.
+
+Regardless of the type of merge created, its important to note that when a merge is created, a commit is created on the active branch to indicate the merge.
+
+
+### Merge Conflicts
+Most of the time Git will be able to merge branches together without any problem. However, there are instances when a merge cannot be fully performed automatically. When a merge fails, it's called a merge conflict.
+
+If a merge conflict does occur, Git will try to combine as much as it can, but then it will leave special markers (e.g. >>> and <<<) that tell you where you (yep, you the programmer!) needs to manually fix.
+
+A merge conflict will happen when the exact same line(s) are changed in separate branches.
+
+The text editor has the following merge conflict indicators:
+
+- `<<<<<<< HEAD` everything below this line (until the next indicator) shows you what's on the current branch
+- `|||||||` merged common ancestors everything below this line (until the next indicator) shows you what the original lines were
+- `=======` is the end of the original lines, everything that follows (until the next indicator) is what's on the branch that's being merged in
+- `>>>>>>> heading-update` is the ending indicator of what's on the branch that's being merged in (in this case, the heading-update branch)
+
+Git is using the merge conflict indicators to show you what lines caused the merge conflict on the two different branches as well as what the original line used to have. So to resolve a merge conflict, you need to:
+
+1. choose which line(s) to keep
+2. remove all lines with indicators
+
+Once you've removed all lines with merge conflict indicators and have selected what heading you want to use, just save the file, add it to the staging index, and commit it! Just like with a regular merge, this will pop open your code editor for you to supply a commit message. Just like before, it's common to use the provided merge commit message, so after the editor opens, just close it to use the provided commit message.
+
+> __Resources about merge conflicts:__
+> *[Basic Merge Conflicts](https://git-scm.com/docs/git-merge#_how_conflicts_are_presented)
+> [How Conflicts Are Presented](https://git-scm.com/docs/git-merge#_how_conflicts_are_presented)
+
