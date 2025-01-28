@@ -479,6 +479,55 @@ git revert <Commit SHA>
 
 When executing `git revert`, git will first create a new commit that reverts your files back to the target commit and shows that the files were reverted, so any intermediate commits stay in the version controls tree.
 
+## Git Reset
+`git reset` is similar to `git revert`, except `git revert` will create a new commit, then update your files while `git reset` will just delete your commit.
+
+> __Note:__
+> If you execute `git reset`, then you might not be able to recover the commit's state depending on the flag you use.
+
+To execute `git reset`, simply type
+
+```
+git reset --<flag> <Commit SHA>
+```
+There are three types flags
+
+### mixed
+
+`git reset --mixed` is the the default flag and that gets executed if you omit the flag in execution.  If you use `--mixed`, files will revert back to the target commit's state in your local directory.
+
+### soft
+`git reset --soft` will take the changes made to get to the target's commit and place them in the staging index.
+
+### hard
+`git reset --hard` will delete all the intermediate commits and revert back to the target commit.
+
+### Relative Commit SHA References
+You already know that you can reference commits by their SHA, by tags, branches, and the special `HEAD` pointer, however there will be times when you'll want to reference a commit relative to another commit. There are special characters called _Ancestry References_ that we can use to tell Git about these relative references. Those characters are:
+
+`^` – indicates the parent commit
+`~ `– indicates the first parent commit
+
+Here's how we can refer to previous commits:
+
+__parent commit__ – the following indicate the parent commit of the current commit
+
+- `HEAD^`
+- `HEAD~`
+- `HEAD~1`
+
+__grandparent commit__ – the following indicate the grandparent commit of the current commit
+
+- `HEAD^^`
+- `HEAD~2`
+  
+__great-grandparent commit__ – the following indicate the great-grandparent commit of the current commit
+
+- `HEAD^^^`
+- `HEAD~3`
+
+The main difference between `^` and `~` is when a commit is created from a merge. A merge commit has two parents. With a merge commit, `^` is used to indicate the first parent of the commit while `^2` indicates the second parent. The first parent is the branch you were on when you ran git merge while the second parent is the branch that was merged in.
+
 # .gitignore
 `.gitignore` is a file that tells you which files should be ignored in your version control.  By adding files into .gitignore, you can ignore them when tracking changes.
 
