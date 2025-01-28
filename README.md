@@ -531,7 +531,9 @@ The main difference between `^` and `~` is when a commit is created from a merge
 > __References__
 >
 > [git-reset from Git docs](https://git-scm.com/docs/git-reset)
+> 
 > [Reset Demystified from Git Blog](https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified)
+> 
 > [Ancestry References from Git Book](https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection#Ancestry-References)
 
 # .gitignore
