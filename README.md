@@ -113,7 +113,7 @@ The most basic one is nano, but you can also use vim.
 `cd ..` - Go back one directory
 `cd ../..` - Go back two directories
 
-# Various Git Commands
+# Git Commands
 ## Git Init
 Before you can make commits or do anything else with a git repository, the repository needs to actually exist in your local directory. To create a new repository with Git, we'll use the `git init` command.
 
@@ -328,32 +328,6 @@ This is the section where I will write why I made the changes.
 > Note:
 > By leaving a space between your first line and the rest of your text in a commit message, when writing `git log --oneline`, you will only see the first line of the commit message.  This will make the logs cleaner to read.
 
-## .gitignore
-`.gitignore` is a file that tells you which files should be ignored in your version control.  By adding files into .gitignore, you can ignore them when tracking changes.
-
-To add a .gitignore file, just type the following in you command line
-
-```
-touch .gitignore
-```
-
-A .gitignore file will then appear in your directory in which you can open with any text editor and add files.
-
-### Globbing
-Let's say that you add 50 images to your project, but want Git to ignore all of them. Does this mean you have to list each and every filename in the .gitignore file? [Globbing](https://en.wikipedia.org/wiki/Glob_) lets you use special characters to match patterns/characters. In the .gitignore file, you can use the following:
-
-- blank lines can be used for spacing
-- `#` - marks line as a comment
-- `*` - matches 0 or more characters
-- `?`- matches 1 character
-- `[abc]` - matches a, b, or c
-- `**` - matches nested directories.  For example, a/**/z matches
-  - `a/z`
-  - `a/b/z`
-  - `a/b/c/z`
-
-So if all of the 50 images are JPEG images in the "samples" folder, we could add the following line to .gitignore to have Git ignore all 50 images.
-
 ## Tagging, Branching
 ### git tag
 __Git tags__ allow you to add a label to a commit.  This can be used when a commit was pushed and was considered to be some current version of your code.
@@ -425,7 +399,8 @@ To view all of you branches at once, you can write
 git log --oneline --graph --all
 ```
 
-## git merge
+## Merging
+### git merge
 To merge a branch into another, you simply type
 
 ```
@@ -503,3 +478,29 @@ git revert <Commit SHA>
 ```
 
 When executing `git revert`, git will first create a new commit that reverts your files back to the target commit and shows that the files were reverted, so any intermediate commits stay in the version controls tree.
+
+# .gitignore
+`.gitignore` is a file that tells you which files should be ignored in your version control.  By adding files into .gitignore, you can ignore them when tracking changes.
+
+To add a .gitignore file, just type the following in you command line
+
+```
+touch .gitignore
+```
+
+A .gitignore file will then appear in your directory in which you can open with any text editor and add files.
+
+## Globbing
+Let's say that you add 50 images to your project, but want Git to ignore all of them. Does this mean you have to list each and every filename in the .gitignore file? [Globbing](https://en.wikipedia.org/wiki/Glob_) lets you use special characters to match patterns/characters. In the .gitignore file, you can use the following:
+
+- blank lines can be used for spacing
+- `#` - marks line as a comment
+- `*` - matches 0 or more characters
+- `?`- matches 1 character
+- `[abc]` - matches a, b, or c
+- `**` - matches nested directories.  For example, a/**/z matches
+  - `a/z`
+  - `a/b/z`
+  - `a/b/c/z`
+
+So if all of the 50 images are JPEG images in the "samples" folder, we could add the following line to .gitignore to have Git ignore all 50 images.
