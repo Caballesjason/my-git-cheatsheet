@@ -561,3 +561,35 @@ Let's say that you add 50 images to your project, but want Git to ignore all of 
   - `a/b/c/z`
 
 So if all of the 50 images are JPEG images in the "samples" folder, we could add the following line to .gitignore to have Git ignore all 50 images.
+
+## Github and Remote Repositories
+Why would you want to have multiple remote repositories? If you are working with multiple developers then you might want to get changes they're working on in their branch(es) into your project before they merge them into the master branch. You might want to do this if you want to test out their change before you decide to implement your changes.
+
+Another example is if you have a project whose code is hosted on Github but deploys via Git to Heroku. You would have one remote for the master and one for the deployment.
+
+
+### git remote
+A remote repository is a repository that's just like the one you're using but it's just stored at a different location.  To manage a remote repository, use the `git remote` command.
+
+When your git directory is linked to a remote repository, your local repository makes an alias for it.  This alias defaults to _origin_.
+
+To view the alias of the remote repository, you can type
+
+```
+git remote
+```
+To view the alias with it's URL, type
+
+```
+git remote -v
+```
+
+To add a remote repository to your local directory, write
+
+```
+git remote add <alias (typially origin)> <git repository url>
+```
+
+> References:
+> [Working with Remotes from the Git book](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes#_showing_your_remotes)
+> [The git remote command from the Git docs](https://git-scm.com/docs/git-remote)
