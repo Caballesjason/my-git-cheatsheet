@@ -401,13 +401,13 @@ git log --oneline --graph --all
 
 ## Merging
 ### git merge
-To merge a branch into another, you simply type
+A merge is when you want to combine one branch to another.  To merge a branch into another, you simply type
 
 ```
 git merge <Branch Name>
 ```
 
-When merging two branches together, its important to note which branch is active.  This is because when you execute `git merge <Branch Name>`, it takes what ever branch you typed in `<Branch Name>` and merges it into the active branch.  For example, if `main` is the current branch, then
+When merging two branches together, its important to note which branch is active.  This is because when you execute `git merge <Branch Name>`, it takes what ever branch you typed in `<Branch Name>` and merges it INTO the active branch.  For example, if `main` is the current branch, then
 
 ```
 git merge <Feature One>
@@ -439,10 +439,9 @@ A merge conflict will happen when the exact same line(s) are changed in separate
 
 The text editor has the following merge conflict indicators:
 
-- `<<<<<<< HEAD` everything below this line (until the next indicator) shows you what's on the current branch
-- `|||||||` merged common ancestors everything below this line (until the next indicator) shows you what the original lines were
-- `=======` is the end of the original lines, everything that follows (until the next indicator) is what's on the branch that's being merged in
-- `>>>>>>> heading-update` is the ending indicator of what's on the branch that's being merged in (in this case, the heading-update branch)
+1. `<<<<<<< HEAD` - Indicates the beginning of the section containing your changes (from the current branch).
+1. `=======` - Separates your changes from the changes in the branch you are merging into.
+1. `>>>>>>> branch-name` - Indicates the end of the conflicting section and shows the name of the branch that you are merging in.
 
 Git is using the merge conflict indicators to show you what lines caused the merge conflict on the two different branches as well as what the original line used to have. So to resolve a merge conflict, you need to:
 
@@ -605,3 +604,4 @@ git push <remote-shortname> <branch>
 
 Depending on how you have configured GitHub and the remote URL that's being used, you might have to enter your username and password. This will happen if you use the HTTP version of the remote (rather than the `SSH` version)
 
+### git pull
