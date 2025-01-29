@@ -593,3 +593,15 @@ git remote add <alias (typially origin)> <git repository url>
 > References:
 > [Working with Remotes from the Git book](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes#_showing_your_remotes)
 > [The git remote command from the Git docs](https://git-scm.com/docs/git-remote)
+
+###  git push
+To push commits to a remote repository, use
+
+```
+git push <remote-shortname> <branch>
+
+# Remember that the defacto short name for a remote branch is "origin"
+```
+
+Depending on how you have configured GitHub and the remote URL that's being used, you might have to enter your username and password. This will happen if you use the HTTP version of the remote (rather than the `SSH` version)
+
