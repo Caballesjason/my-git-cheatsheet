@@ -238,6 +238,28 @@ You can also reference specific SHA IDs to filter out commits by writing
 ```git
 git log < insert commands > < SHA ID >
 ```
+### git shortlog
+When collaborating with other developers, your project may have a ton of commits.  We can separate commits by user by typing 
+
+```
+git shortlog
+git shortlog -s # Shows the number of commits for each user
+git shortlog -n # Shows users in order of the number of commits they made
+git shortlog -n -s # Shows commits of each user in order of highest number of commits
+```
+
+### Filtering Logs by author
+You can also filter logs by user.
+```
+git log --author=<Author's Username> # Make sure the user name is in quotes
+```
+
+### Finding Commits in Logs using grep
+You can also locate specific commits in `git log` based off their commit messages by using `grep`.  To find commits based on their commit messages, type
+
+```
+git log --grep="String to Find"
+```
 
 ## Git Commits
 Below are some commands related to git commits
@@ -594,6 +616,7 @@ git remote add <alias (typially origin)> <git repository url>
 > [The git remote command from the Git docs](https://git-scm.com/docs/git-remote)
 
 ###  git push
+`git push` will take your local active branch and merge it into the remote branch being tracked.
 To push commits to a remote repository, use
 
 ```
@@ -605,3 +628,34 @@ git push <remote-shortname> <branch>
 Depending on how you have configured GitHub and the remote URL that's being used, you might have to enter your username and password. This will happen if you use the HTTP version of the remote (rather than the `SSH` version)
 
 ### git pull
+`git pull` is the opposite of `git push`.  Rather than merging your local active branch into your remote branch, `git pull` will take a remote branch, and merge it into your local active branch.
+
+to execute `git pull`, simply type
+
+```
+git pull <remote-shortname> <branch>
+```
+### git fetch
+`git fetch` is similar to `git pull` except rather than merging the commits that you don't have in your local branch from the remote branch, `git fetch` will just fetch the commits, then point to those commits.  To merge with the remote branch, you simply just need to execute `git merge`.
+
+To execute `git fetch` simply type
+
+```
+git fetch <remote-shortname> <branch>
+```
+
+When collaborating with other developers, its safer to `git fetch` than `git merge` since the pointer of the remote branch might be pointing to a commit not in your local repository.
+
+### Cloning and Forking a Repository
+When you fork a repository,you are duplicating it. Typically you fork a repository that belongs to someone else. So you make an identical copy of their repository and that duplicate copy now belongs to you.
+
+Forking a repository is different from cloning a repository.  When you fork a repository, a copy of the repository gets hosted on github or whatever hosting service you are using.  You own that remote copy on the hosting service.  When you clone a repository, you are simnply downloading the repository locally onto your computer.  This local copy does not link to a remote repository. 
+
+To clone a repository you simply type
+
+```
+git clone <git repository url>
+```
+
+To fork a repository, you need to go to your hosting service to fork it.  Remember, forking isn't a git command, its a feature that can be done in a hosting service like github.
+
