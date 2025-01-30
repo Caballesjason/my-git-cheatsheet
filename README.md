@@ -659,3 +659,49 @@ git clone <git repository url>
 
 To fork a repository, you need to go to your hosting service to fork it.  Remember, forking isn't a git command, its a feature that can be done in a hosting service like github.
 
+## Contributing to Projects
+### CONTRIBUTING.md
+When you want to contribute to project that many developers are working on, you should look at the `CONTRIBUTING.md`.
+
+`CONTRIBUTING.md` lists out the information you should follow when contributing to the project.  You should look at it before you ever start contributing since it explains how your code should be formatted and the steps you should go about to contribute.
+
+### Github Issues
+Github has a web interface for issues which are used by developers to help track active bugs, and features/tasks to be implemented.  These issues are typically managed by maintainers of the project, and you can ask them questions using the issue interface.
+
+Each issue can:
+
+- Have a label or multiple labels applied to it
+- Can be assigned to an individual
+- Can be assigned a milestone (for example the issue will be resolved by the next major release)
+- Can have comments to create a discussion thread
+- Can have developers subscribe to it so that they can be notifed of issues being updated
+
+### Topic Branches
+Topic branches host commits for just a single concept or single area of change.
+
+For example if there is a problem with the login form for logging into the website, then a branch name to address this specific issue could be called:
+
+- `login`
+- `login-bug`
+- `signup-bug`
+- `login-form-bug`
+
+### Pull Requests
+Before diving into pull requests (PRs), we need to know how to sync new changes in our forked remote repository and recieve updates from original source repository.
+
+__Pull Requests__
+A pull request is a request to the original or source repository's maintainer to include changes in their project that you made in your fork of their project. You are requesting that they pull in changes you've made.
+
+Heres a high level overview of how pull requests work.  [Click here](https://www.youtube.com/watch?v=twLr9ndsf90&t=84s)
+
+To commit a pull request you must 
+
+1. Fork the repository
+2. Make changes
+   1. Possibly create a branch for your changes if needed
+3. Make commits and push to your forked repository
+4. On github select "Make a pull request"
+5. Choose which branches you want to compare in the pull request
+6. Add a message and submit the pull request
+
+Pull Requests can only be approved and merged by the repository's owner.
