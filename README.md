@@ -396,7 +396,7 @@ git branch -d <Branch Name>
 ```
 
 ### git checkout
-`git checkout` allows you to move and work with the state of a directory for a some branch.
+`git checkout` allows you to switch branches that you are working on.
 
 To enter a branch to write code, write
 
@@ -742,3 +742,6 @@ $ git push origin master
 ```
 
 [Here](https://www.youtube.com/watch?v=VvoC6hN6FjU&t=1s) is a better understanding on how to stayed synced
+
+### git rebase
+`git rebase` is typically used to sqush commits, i.e. combine multiple commits into one commit.
