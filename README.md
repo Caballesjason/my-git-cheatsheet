@@ -744,6 +744,7 @@ $ git push origin master
 [Here](https://www.youtube.com/watch?v=VvoC6hN6FjU&t=1s) is a better understanding on how to stayed synced
 
 ### git rebase
+<<<<<<< HEAD
 `git rebase` is typically used to squash commits, i.e. combine multiple commits into one commit.  To squash commits together with `git rebase`, simply type
 
 ```git
@@ -806,3 +807,4 @@ So you should not rebase if you have already pushed the squashed commits you wan
 > [git-rebase from the Git Docs](https://git-scm.com/docs/git-rebase)
 > 
 > [Atlassian Rebase Blog](https://www.atlassian.com/git/tutorials/rewriting-history#git-rebase)
+
