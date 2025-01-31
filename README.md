@@ -663,7 +663,7 @@ To fork a repository, you need to go to your hosting service to fork it.  Rememb
 ### CONTRIBUTING.md
 When you want to contribute to project that many developers are working on, you should look at the `CONTRIBUTING.md`.
 
-`CONTRIBUTING.md` lists out the information you should follow when contributing to the project.  You should look at it before you ever start contributing since it explains how your code should be formatted and the steps you should go about to contribute.
+`CONTRIBUTING Markdown File` lists out the information you should follow when contributing to the project.  You should look at it before you ever start contributing since it explains how your code should be formatted and the steps you should go about to contribute.
 
 ### Github Issues
 Github has a web interface for issues which are used by developers to help track active bugs, and features/tasks to be implemented.  These issues are typically managed by maintainers of the project, and you can ask them questions using the issue interface.
@@ -705,3 +705,40 @@ To commit a pull request you must
 6. Add a message and submit the pull request
 
 Pull Requests can only be approved and merged by the repository's owner.
+
+### Stars and Watching
+
+<!-- PLEASE ADD IMAGES FOR WATCHES -->
+While you're working on a topic branch of changes that you want to make to a repository, that repository will probably be receiving updates of its own from the original authors.  If you want to keep up-to-date with the Repository, GitHub offers a convenient way to keep track of repositories using stars or watching.
+
+You can star a repository then go to [https://github.com/stars](https://github.com/stars) to view all repositories that you have started.  However, you won't receive a notification in real time with stars.  Its kind of like saving a post on instagram to your favorites.
+
+If you need to keep up with a project's changes and want to be notified of when things change, GitHub offers a "Watch" feature.  You can set a repository to "Watching" and whenever the owners make changes, your account notifies you!
+
+### Upstream changes
+When working on another developers repository, there may be a chance that they have updated their repository and your forked repository and local repository are out of date.  You already made commits on your own and need to update your repositories to get up to date with the changes in the developer's repository before you can make your PR.
+
+In order to update your forked and local repositories, the local repository must track both the forked and developer's repositories.  You can then push all of your updates to your forked repository.  Afterward, you can then fetch the commits of the developer's repository and merge your commits with their commits.
+
+Recall that your remote repository typically has a short name called origin.  It is common practice to call the developer's repository the "upstream" branch.
+
+Below is a step by step guide to keep in track with another developer's remote repository.
+
+```git
+# Track the developer's remote repository
+git remote add upstream <repository URL>
+
+# Fetch the new commits
+git fetch upstream master
+
+# Make sure to be only your origin's branch you are working on (in this case master)
+$ git checkout master
+
+# merge the upstream commits to your origin's
+$ git merge upstream/master
+
+# push to your forked repository
+$ git push origin master 
+```
+
+[Here](https://www.youtube.com/watch?v=VvoC6hN6FjU&t=1s) is a better understanding on how to stayed synced
