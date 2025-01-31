@@ -396,7 +396,7 @@ git branch -d <Branch Name>
 ```
 
 ### git checkout
-`git checkout` allows you to move and work with the state of a directory for a some branch.
+`git checkout` allows you to switch branches that you are working on.
 
 To enter a branch to write code, write
 
@@ -742,3 +742,67 @@ $ git push origin master
 ```
 
 [Here](https://www.youtube.com/watch?v=VvoC6hN6FjU&t=1s) is a better understanding on how to stayed synced
+
+### git rebase
+`git rebase` is typically used to squash commits, i.e. combine multiple commits into one commit.  To squash commits together with `git rebase`, simply type
+
+```git
+git rebase -i <base>
+
+# i is short for interactive
+```
+
+You can use Relative Commit SHA References to refer to the commit you would like to base to.  When we say "commit to base to", we refer to which commit do the all commits sqaush into.
+
+Below are the steps to squash commits.
+
+1. Check out to the commit you would like to start squashing to.
+
+```git
+git checkout <Commit SHA>
+```
+
+2. Use `git rebase` and the relative commit SHA Reference to refer to all commits that need to be squashed
+
+```git
+git rebase -i <base>
+```
+
+3. When executing `git rebase`, git will prompt you with a set of possible commands and list the commits you want to squash in reverse chronological order.  Below are those commands
+
+
+- use `p` or pick – to keep the commit as is
+- use `r` or reword – to keep the commit's content but alter the commit message
+- use `e` or edit – to keep the commit's content but stop before committing so that you can:
+  - add new content or files
+  - remove content or files
+  - alter the content that was going to be committed
+- use `s` or squash – to combine this commit's changes into the previous commit (the commit above it in the list)
+- use `f` or fixup – to combine this commit's change into the previous one but drop the commit message
+- use `x` or exec – to run a shell command
+- use `d` or drop – to delete the commit
+
+Each commit needs to be assigned one of these commands.  Typically, all commits will use `s`, signifying they will be squashed and the oldest commit will use either `p` or `r` incase you would like to rewrite the commit.
+
+4. You must force a push to the remote repository by calling
+
+```git
+git push -f <short name> <branch name>
+```
+
+You need to force a push because the rebase creates a new commit that has no reference in the remote repository, so you have to force the push to create the new commit, effectively deleting the squashed commits.
+
+When using a forced push, you are deleting commits, so its best practice to make a branch at the commit you want to start squashing incase you need to revert back to the original commits.
+
+__When to not rebase__
+Whenever you rebase commits, Git will create a new SHA for each commit! This has drastic implications. To Git, the SHA is the identifier for a commit, so a different identifier means it's a different commit, regardless if the content has changed at all.
+
+So you should not rebase if you have already pushed the squashed commits you want to rebase. If you're collaborating with other developers, then they might already be working with the commits you've pushed. If you then use git rebase to change things around and then force push the commits, then the other developers will now be out of sync with the remote repository. They will have to do some complicated surgery to their Git repository to get their repo back in a working state...and it might not even be possible for them to do that; they might just have to scrap all of their work and start over with your newly-rebased, force-pushed commits.
+
+> __References:__
+>
+> [Git Branching - Rebasing from the Git Book](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
+> 
+> [git-rebase from the Git Docs](https://git-scm.com/docs/git-rebase)
+> 
+> [Atlassian Rebase Blog](https://www.atlassian.com/git/tutorials/rewriting-history#git-rebase)
