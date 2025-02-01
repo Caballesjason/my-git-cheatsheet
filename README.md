@@ -1,6 +1,6 @@
 # Git Cheatsheet
 For more information please see the [Git Documentation](https://git-scm.com/doc)
-## Key Terms
+# Key Terms
 __Version Control System (VCS) or Source Code Manager (SCM)__
 A VCS allows you to:
 - Revert files back to a previous state.
@@ -50,36 +50,14 @@ A new line of development diverging from the main line. It allows:
   
 > Analogy: A branch is like a save point in a game. You can create a save point, try a risky move, and return to the save point if needed. Branches let you create save points on one branch and switch to another branch for independent work.
 
-# First Time Git Configurations Commands
-```git
-# Access your current git configurations
-git config --list
+# Some Useful Terminal Commands
+`ls` - Used to list files and directories
+`mkdir` - Used to create a new directory
+`cd` - Used to change directories
+`rm` - Used to remove files and directories
+`cd ..` - Go back one directory
+`cd ../..` - Go back two directories
 
-# sets up Git with your name
-git config --global user.name "<Your-Full-Name>"
-
-# sets up Git with your email
-git config --global user.email "<your-email-address>"
-
-# makes sure that Git output is colored
-git config --global color.ui auto
-
-# displays the original state in a conflict
-git config --global merge.conflictstyle diff3
-
-```
-
-# Setting Up Git on Various IDEs
-```git
-# Atom
-git config --global core.editor "atom --wait"
-
-# Sublime Text
-git config --global core.editor "'/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl' -n -w"
-
-# VS Code
-git config --global core.editor "code --wait"
-```
 
 # Installing Git
 ## Windows
@@ -105,13 +83,37 @@ git config --global core.editor "Your text editor"
 
 The most basic one is nano, but you can also use vim.
 
-# Some Useful Terminal Commands
-`ls` - Used to list files and directories
-`mkdir` - Used to create a new directory
-`cd` - Used to change directories
-`rm` - Used to remove files and directories
-`cd ..` - Go back one directory
-`cd ../..` - Go back two directories
+# Git Set Up
+## First Time Git Configurations Commands
+```git
+# Access your current git configurations
+git config --list
+
+# sets up Git with your name
+git config --global user.name "<Your-Full-Name>"
+
+# sets up Git with your email
+git config --global user.email "<your-email-address>"
+
+# makes sure that Git output is colored
+git config --global color.ui auto
+
+# displays the original state in a conflict
+git config --global merge.conflictstyle diff3
+
+```
+
+## Setting Up Git on Various IDEs
+```git
+# Atom
+git config --global core.editor "atom --wait"
+
+# Sublime Text
+git config --global core.editor "'/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl' -n -w"
+
+# VS Code
+git config --global core.editor "code --wait"
+```
 
 # Git Commands
 ## Git Init
@@ -166,7 +168,7 @@ To run the command, simply run
 git status
 ```
 
-## Git Log
+## Git Logs
 `git log` allows you to view the history of changes of your project.  You can see who makes commits, commentary of people making commits, push actions, and so on.
 
 To view the git log, simply type
@@ -201,7 +203,7 @@ To view just the commit messages, you can type
 git log --oneline
 ```
 
-###  git log --stat
+###  Git Log Stat
 ` git log --stat` provides a log of activity, but rather showing comments from each commit, it shows what files were changed, and how many lines were affected. `stat` is short for statistic.
 
 To execute this command, simply type
@@ -217,7 +219,7 @@ Each file that changes will be listed in the commit, followed by various plus an
 
 ![](img/Git-Log-Stat-Commit-Example.png)
 
-### git log --patch
+### Git Log Patch
 `git log --patch` or `git log-p` for short, will display the actual file changes for each commit.
 
 ![](img/Git-Log-Patch-Commit-Example.png)
@@ -238,7 +240,7 @@ You can also reference specific SHA IDs to filter out commits by writing
 ```git
 git log < insert commands > < SHA ID >
 ```
-### git shortlog
+### Git Shortlog
 When collaborating with other developers, your project may have a ton of commits.  We can separate commits by user by typing 
 
 ```
@@ -248,23 +250,23 @@ git shortlog -n # Shows users in order of the number of commits they made
 git shortlog -n -s # Shows commits of each user in order of highest number of commits
 ```
 
-### Filtering Logs by author
+### Filtering Logs by Author
 You can also filter logs by user.
 ```
 git log --author=<Author's Username> # Make sure the user name is in quotes
 ```
 
-### Finding Commits in Logs using grep
+### Finding Commits in Logs Using Grep
 You can also locate specific commits in `git log` based off their commit messages by using `grep`.  To find commits based on their commit messages, type
 
 ```
 git log --grep="String to Find"
 ```
 
-## Git Commits
+## Commits
 Below are some commands related to git commits
 
-### git add
+### git Add
 `git add` allows you to add files to the staging index.  To add files, simply type 
 
 ```
@@ -283,14 +285,14 @@ To add all files, you can simply type
 git add .
 ```
 
-### git rm --cached
+### Git Rm Cached
 If you would like to remove a file from the staging index, you can type
 
 ```
 git rm --cached <file name>
 ```
 
-### git reset
+### Git Reset
 To remove all files from the staging index, type
 
 ```
@@ -305,7 +307,7 @@ git reset --hard
 > Note:
 > By type `git reset --hard`, you will be altering the files in your directory and any chances that you made after your checkpoint will disappear.
 
-### git commit
+### Git Commit
 To make a commit, simply write 
 
 ```
@@ -351,7 +353,7 @@ This is the section where I will write why I made the changes.
 > By leaving a space between your first line and the rest of your text in a commit message, when writing `git log --oneline`, you will only see the first line of the commit message.  This will make the logs cleaner to read.
 
 ## Tagging, Branching
-### git tag
+### Git Tag
 __Git tags__ allow you to add a label to a commit.  This can be used when a commit was pushed and was considered to be some current version of your code.
 
 To write a tag to a commit, simply type
@@ -370,7 +372,7 @@ git tag -d <tag>
 # -d is short for "delete"
 ```
 
-### git branch
+### Git Branch
 Branches allow you to work on the same project with different isolated environments!
 
 To list all branches in your repository, write 
@@ -395,7 +397,7 @@ git branch -d <Branch Name>
 # -d is short for delete
 ```
 
-### git checkout
+### Git Checkout
 `git checkout` allows you to switch branches that you are working on.
 
 To enter a branch to write code, write
@@ -422,7 +424,7 @@ git log --oneline --graph --all
 ```
 
 ## Merging
-### git merge
+### Git Merge
 A merge is when you want to combine one branch to another.  To merge a branch into another, you simply type
 
 ```
@@ -513,14 +515,14 @@ git reset --<flag> <Commit SHA>
 ```
 There are three types flags
 
-### mixed
+### Mixed
 
 `git reset --mixed` is the the default flag and that gets executed if you omit the flag in execution.  If you use `--mixed`, files will revert back to the target commit's state in your local directory.
 
-### soft
+### Soft
 `git reset --soft` will take the changes made to get to the target's commit and place them in the staging index.
 
-### hard
+### Hard
 `git reset --hard` will delete all the intermediate commits and revert back to the target commit.
 
 ### Relative Commit SHA References
@@ -583,13 +585,13 @@ Let's say that you add 50 images to your project, but want Git to ignore all of 
 
 So if all of the 50 images are JPEG images in the "samples" folder, we could add the following line to .gitignore to have Git ignore all 50 images.
 
-## Github and Remote Repositories
+# Github and Remote Repositories
 Why would you want to have multiple remote repositories? If you are working with multiple developers then you might want to get changes they're working on in their branch(es) into your project before they merge them into the master branch. You might want to do this if you want to test out their change before you decide to implement your changes.
 
 Another example is if you have a project whose code is hosted on Github but deploys via Git to Heroku. You would have one remote for the master and one for the deployment.
 
 
-### git remote
+## Git Remote
 A remote repository is a repository that's just like the one you're using but it's just stored at a different location.  To manage a remote repository, use the `git remote` command.
 
 When your git directory is linked to a remote repository, your local repository makes an alias for it.  This alias defaults to _origin_.
@@ -615,7 +617,7 @@ git remote add <alias (typially origin)> <git repository url>
 > [Working with Remotes from the Git book](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes#_showing_your_remotes)
 > [The git remote command from the Git docs](https://git-scm.com/docs/git-remote)
 
-###  git push
+##  Git Push
 `git push` will take your local active branch and merge it into the remote branch being tracked.
 To push commits to a remote repository, use
 
@@ -627,7 +629,7 @@ git push <remote-shortname> <branch>
 
 Depending on how you have configured GitHub and the remote URL that's being used, you might have to enter your username and password. This will happen if you use the HTTP version of the remote (rather than the `SSH` version)
 
-### git pull
+## Git Pull
 `git pull` is the opposite of `git push`.  Rather than merging your local active branch into your remote branch, `git pull` will take a remote branch, and merge it into your local active branch.
 
 to execute `git pull`, simply type
@@ -635,7 +637,7 @@ to execute `git pull`, simply type
 ```
 git pull <remote-shortname> <branch>
 ```
-### git fetch
+## Git Fetch
 `git fetch` is similar to `git pull` except rather than merging the commits that you don't have in your local branch from the remote branch, `git fetch` will just fetch the commits, then point to those commits.  To merge with the remote branch, you simply just need to execute `git merge`.
 
 To execute `git fetch` simply type
@@ -646,7 +648,7 @@ git fetch <remote-shortname> <branch>
 
 When collaborating with other developers, its safer to `git fetch` than `git merge` since the pointer of the remote branch might be pointing to a commit not in your local repository.
 
-### Cloning and Forking a Repository
+## Cloning and Forking a Repository
 When you fork a repository,you are duplicating it. Typically you fork a repository that belongs to someone else. So you make an identical copy of their repository and that duplicate copy now belongs to you.
 
 Forking a repository is different from cloning a repository.  When you fork a repository, a copy of the repository gets hosted on github or whatever hosting service you are using.  You own that remote copy on the hosting service.  When you clone a repository, you are simnply downloading the repository locally onto your computer.  This local copy does not link to a remote repository. 
@@ -659,13 +661,13 @@ git clone <git repository url>
 
 To fork a repository, you need to go to your hosting service to fork it.  Remember, forking isn't a git command, its a feature that can be done in a hosting service like github.
 
-## Contributing to Projects
-### CONTRIBUTING.md
+# Contributing to Projects
+## The Contributions Markdown File
 When you want to contribute to project that many developers are working on, you should look at the `CONTRIBUTING.md`.
 
 `CONTRIBUTING Markdown File` lists out the information you should follow when contributing to the project.  You should look at it before you ever start contributing since it explains how your code should be formatted and the steps you should go about to contribute.
 
-### Github Issues
+## Github Issues
 Github has a web interface for issues which are used by developers to help track active bugs, and features/tasks to be implemented.  These issues are typically managed by maintainers of the project, and you can ask them questions using the issue interface.
 
 Each issue can:
@@ -676,7 +678,7 @@ Each issue can:
 - Can have comments to create a discussion thread
 - Can have developers subscribe to it so that they can be notifed of issues being updated
 
-### Topic Branches
+## Topic Branches
 Topic branches host commits for just a single concept or single area of change.
 
 For example if there is a problem with the login form for logging into the website, then a branch name to address this specific issue could be called:
@@ -686,7 +688,7 @@ For example if there is a problem with the login form for logging into the websi
 - `signup-bug`
 - `login-form-bug`
 
-### Pull Requests
+## Pull Requests
 Before diving into pull requests (PRs), we need to know how to sync new changes in our forked remote repository and recieve updates from original source repository.
 
 __Pull Requests__
@@ -706,7 +708,7 @@ To commit a pull request you must
 
 Pull Requests can only be approved and merged by the repository's owner.
 
-### Stars and Watching
+## Stars and Watching
 
 <!-- PLEASE ADD IMAGES FOR WATCHES -->
 While you're working on a topic branch of changes that you want to make to a repository, that repository will probably be receiving updates of its own from the original authors.  If you want to keep up-to-date with the Repository, GitHub offers a convenient way to keep track of repositories using stars or watching.
@@ -715,7 +717,7 @@ You can star a repository then go to [https://github.com/stars](https://github.c
 
 If you need to keep up with a project's changes and want to be notified of when things change, GitHub offers a "Watch" feature.  You can set a repository to "Watching" and whenever the owners make changes, your account notifies you!
 
-### Upstream changes
+## Upstream Changes
 When working on another developers repository, there may be a chance that they have updated their repository and your forked repository and local repository are out of date.  You already made commits on your own and need to update your repositories to get up to date with the changes in the developer's repository before you can make your PR.
 
 In order to update your forked and local repositories, the local repository must track both the forked and developer's repositories.  You can then push all of your updates to your forked repository.  Afterward, you can then fetch the commits of the developer's repository and merge your commits with their commits.
@@ -743,7 +745,7 @@ $ git push origin master
 
 [Here](https://www.youtube.com/watch?v=VvoC6hN6FjU&t=1s) is a better understanding on how to stayed synced
 
-### git rebase
+## git rebase
 <<<<<<< HEAD
 `git rebase` is typically used to squash commits, i.e. combine multiple commits into one commit.  To squash commits together with `git rebase`, simply type
 
@@ -763,7 +765,7 @@ Below are the steps to squash commits.
 git checkout <Commit SHA>
 ```
 
-2. Use `git rebase` and the relative commit SHA Reference to refer to all commits that need to be squashed
+2. Use `Git rebase` and the relative commit SHA Reference to refer to all commits that need to be squashed
 
 ```git
 git rebase -i <base>
