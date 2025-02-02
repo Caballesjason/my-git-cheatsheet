@@ -53,11 +53,17 @@ git creates a tree of commits to help you manage different states of your direct
 > Analogy: A branch is like a checkpoint in a game. You can create a checkpoint, try a risky move, and return to the checkpoint if needed. Branches let you create checkpoint on one branch and switch to another branch for independent work.
 
 # Some Useful Terminal Commands
-`ls` - Used to list files and directories
-`mkdir` - Used to create a new directory
-`cd` - Used to change directories
-`rm` - Used to remove files and directories
+
+`ls` - Creates a list of files and sub-directories in your terminals working directory
+
+`mkdir` - Creates a new directory
+
+`cd` - Lets you navigate directories
+
+`rm` - Removes files or sub-directories
+
 `cd ..` - Go back one directory
+
 `cd ../..` - Go back two directories
 
 
