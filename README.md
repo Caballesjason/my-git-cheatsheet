@@ -2,6 +2,7 @@
 For more information please see the [Git Documentation](https://git-scm.com/doc)
 # Key Terms
 __Version Control System (VCS) or Source Code Manager (SCM)__
+
 A VCS allows you to:
 - Revert files back to a previous state.
 - Revert the entire project back to a previous state.
@@ -9,46 +10,47 @@ A VCS allows you to:
 - See who last modified something that might be causing a problem.
 - Identify who introduced an issue and when.
 
-__Commit (Snapshot)__
-Git treats data as a set of snapshots of a mini file system. Every time you commit (save the state of your project in Git), it takes a "picture" of your files at that moment and stores a reference to that snapshot.
+__Commit__
+
+Git treats your directory as a set of snapshots of a mini file system. Every time you commit (save the state of your project in Git), it takes a "picture" of your files at that moment and stores a reference to that snapshot.
 
 __Repository (Repo)__
-A directory that:
-- Contains your project work.
-- Includes hidden files (used by Git).
-Repositories can exist locally on your computer or as a remote copy on another computer.
+
+A repository is a directory that contains your project's files and hidden files used by git.  Repositories exist locally on your computer or as a a remote copy on another computer.
 
 __Working Directory__
-The files visible in your computer's file system. When you edit your project files, you are working in the Working Directory.
 
-> Note: This is different from:
-> - Files saved in commits within the repository.
-> - The command line's current working directory.
-
-
+The folder in your computer's file sytem that contains all of your project's files.  This is different from the files saved in commits within a repository or the command line's current working directory.
 
 __Checkout__
-The process of copying repository content to the Working Directory. You can checkout:
+
+The process of copying a repository's content into the working directory.
+
+You can checkout:
+
 - Files
 - Commits
 - Branches
 
 __Staging Area (Staging Index or Index)__
-A file in the Git directory that stores information about what will go into your next commit. Think of it as a prep table where Git organizes the next commit. Files in the Staging Area are ready to be added to the repository.
+
+A file in the repository that stores information about what will go into your next commit. Think of it as a prep table where git organizes the next commit. Files in the Staging Area are ready to be added to the repository.
 
 __SHA (SHA Hash)__
-An ID number for each commit. A SHA is:
-- A 40-character string (composed of 0–9 and a–f).
-- Calculated based on the contents of a file or directory in Git.
+
+An ID number for each commit. SHAs contain are a 40-character string composed of digits and lowercase letters and are calculated based on the contents of a file or directory in a repository.
   
 Example SHA:
-`e2adf8ae3e2e4ed40add75cc44cf9d0a869afeb6`
+
+```git
+e2adf8ae3e2e4ed40add75cc44cf9d0a869afeb6
+```
 
 __Branch__
-A new line of development diverging from the main line. It allows:
-- Independent development without altering the main line.
-  
-> Analogy: A branch is like a save point in a game. You can create a save point, try a risky move, and return to the save point if needed. Branches let you create save points on one branch and switch to another branch for independent work.
+
+git creates a tree of commits to help you manage different states of your directory.  Each commit is it's own node in the tree.  Each git tree starts out with one branch of commits, and may create separate branches stemming from the first branch.  This can allow developers to test features without messing up the original branch.
+
+> Analogy: A branch is like a checkpoint in a game. You can create a checkpoint, try a risky move, and return to the checkpoint if needed. Branches let you create checkpoint on one branch and switch to another branch for independent work.
 
 # Some Useful Terminal Commands
 `ls` - Used to list files and directories
