@@ -78,14 +78,6 @@ Go to [https://git-scm.com/downloads](https://git-scm.com/downloads) and downloa
 
 # Git Set Up
 ## First Time Git Configurations Commands
-To set your default text editor for commits, type
-
-
-git config --global core.editor "Your text editor"
-
-
-The most basic one is nano, but you can also use vim.
-
 ```git
 # Set your default text editor for commits (The most basic one is nano, but you can also use vim!)
 git config --global core.editor "Your text editor"
