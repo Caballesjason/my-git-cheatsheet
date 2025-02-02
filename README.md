@@ -4,11 +4,11 @@ For more information please see the [Git Documentation](https://git-scm.com/doc)
 __Version Control System (VCS) or Source Code Manager (SCM)__
 
 A VCS allows you to:
-- Revert files back to a previous state.
-- Revert the entire project back to a previous state.
-- Review changes made over time.
-- See who last modified something that might be causing a problem.
-- Identify who introduced an issue and when.
+- Revert files back to a previous state
+- Revert the entire project back to a previous state
+- Review changes made over time
+- See who last modified something that might be causing a problem
+- Identify who introduced an issue and when
 
 __Commit__
 
@@ -69,46 +69,41 @@ git creates a tree of commits to help you manage different states of your direct
 
 # Installing Git
 ## Windows
-To download Git:
-Go to [https://git-scm.com/downloads](https://git-scm.com/downloads) (opens in a new tab)
-download the software for Windows
-install Git choosing all of the default options
-Once everything is installed, you should be able to run git on the command line. If it displays the usage information, then you're good to go!
+Go to [https://git-scm.com/downloads](https://git-scm.com/downloads) and download the software for the Windows installation, choosing all of the default options.  Once everything is installed, you should be able to run git on the command line. If it displays the usage information, then you're good to go!
 
 ## Mac
 Git is actually installed on MacOS, but we'll be reinstalling it so that we'll have the newest version:
 
-go to [https://git-scm.com/downloads](https://git-scm.com/downloads) (opens in a new tab)
-download the software for Mac
-install Git choosing all of the default options
-Once everything is installed, you should be able to run git on the command line. If it displays the usage information, then you're good to go!
-
-To set your default text editor for commits, type
-
-```
-git config --global core.editor "Your text editor"
-```
-
-The most basic one is nano, but you can also use vim.
+Go to [https://git-scm.com/downloads](https://git-scm.com/downloads) and download the software for Mac.  Install git choosing all of the default options.  Once everything is installed, you should be able to run git on the command line. If it displays the usage information, then you're good to go!
 
 # Git Set Up
 ## First Time Git Configurations Commands
+To set your default text editor for commits, type
+
+
+git config --global core.editor "Your text editor"
+
+
+The most basic one is nano, but you can also use vim.
+
 ```git
+# Set your default text editor for commits (The most basic one is nano, but you can also use vim!)
+git config --global core.editor "Your text editor"
+
 # Access your current git configurations
 git config --list
 
-# sets up Git with your name
+# Set up Git with your name for the username global variable
 git config --global user.name "<Your-Full-Name>"
 
-# sets up Git with your email
+# Sets up Git with your email for the email global variable
 git config --global user.email "<your-email-address>"
 
-# makes sure that Git output is colored
+# Makes sure that Git output is colored
 git config --global color.ui auto
 
-# displays the original state in a conflict
+# Displays the original state in a conflict
 git config --global merge.conflictstyle diff3
-
 ```
 
 ## Setting Up Git on Various IDEs
