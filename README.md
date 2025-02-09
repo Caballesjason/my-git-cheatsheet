@@ -155,20 +155,20 @@ This directory holds pointers to commits (basically the "branches" and "tags")
 Other than the "hooks" directory, you shouldn't mess with pretty much any of the content in here. The "hooks" directory can be used to hook into different parts or events of Git's workflow.
 
 ## Git Clone
-`git clone` allows you to clone (copy) a remote repository to be loaded locally in your computer. Typically you write the URL after the command, i.e.
+`git clone` allows you to clone (copy) a remote repository locally in your computer. Typically you write the URL after the command
 
 ```git
-git clone < https://github.com/user/repository-name >
+git clone <https://github.com/user/repository-name>
 ```
 
-When cloning a repository, a new directory named after the repository name found in repository's url is created to store all files related to the repository.  You can change the name of the directory by the following command
+When cloning a repository, a new directory named after the repository name found in repository's url is created to store all files related to the repository.  You can change the name of the directory by using the following command
 
 ```git
-git clone < https://github.com/user/repository-name > < new-directory-name >
+git clone <https://github.com/user/repository-name> <new-directory-name>
 ```
 
 ## Git Status
-The `git status` will tell you what Git is thinking and the state of our repository as Git sees it. You should be using  `git status` all of the time! You should get into the habit of running it after any other command. This will help you learn how Git works and it'll help you from making (possibly) incorrect assumptions about the state of your files/repository.
+The `git status` will tell you what Git is thinking and the state of our repository as Git sees it.ou It's a good habit to gun `git status` after any other command. This will help you learn how Git works and it'll help you from making (possibly) incorrect assumptions about the state of your files/repository.
 
 To run the command, simply run
 
@@ -199,11 +199,17 @@ Here are some important outputs of the log
 
 `SHA` - `git log` will display the complete `SHA` (commit ID) for every single commit. Each `SHA` is unique, so we don't really need to see the entire `SHA`.
 
-__Author__ - `git log` displays the commit author for every single commit! It could be different for other repositories that have multiple people collaborating together.
+__Author__
 
-__Commit date__ - By default, `git log` will display the date for each commit.
+`git log` displays the commit author for every single commit! It could be different for other repositories that have multiple people collaborating together.
 
-__Commit message__ - This is one of the most important parts of a commit message...we usually always want to see this
+__Commit date__
+
+By default, `git log` will display the date for each commit.
+
+__Commit message__
+
+This is one of the most important parts of a commit message...we usually always want to see this
 
 To view just the commit messages, you can type
 
@@ -232,9 +238,9 @@ Each file that changes will be listed in the commit, followed by various plus an
 
 ![](img/Git-Log-Patch-Commit-Example.png)
 
-The line with `diff --git a/README.MD b/README.md` states that `README.MD` was changed and the `a` directory is the original file while the `b` directory is the new file.
+The line with `diff --git a/README.MD b/README.md` states that `README.MD` was changed.  The `a` directory is the original file and the `b` directory is the new file.
 
-The `@@ -1,6 +1,6 @@` indicates shows what lines things were changed in.  In the first pair of numbers, -1 indicates lines were removed starting in line 1 and the log is showing 6 lines.
+The `@@ -1,6 +1,6 @@` indicators show what lines were changed in.  In the first pair of numbers, -1 indicates lines were removed starting in line 1 and the log is showing 6 lines.
 
 The second pair of numbers indicate that starting from line 1, there was one line added and the log shows 6 lines.
 
@@ -246,7 +252,7 @@ You can also combine `git log -p --stat` to show the commit messages and the doc
 You can also reference specific SHA IDs to filter out commits by writing
 
 ```git
-git log < insert commands > < SHA ID >
+git log <insert commands> <SHA ID>
 ```
 ### Git Shortlog
 When collaborating with other developers, your project may have a ton of commits.  We can separate commits by user by typing 
@@ -259,7 +265,8 @@ git shortlog -n -s # Shows commits of each user in order of highest number of co
 ```
 
 ### Filtering Logs by Author
-You can also filter logs by user.
+You can also filter logs by user by typing
+
 ```
 git log --author=<Author's Username> # Make sure the user name is in quotes
 ```
