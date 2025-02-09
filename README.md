@@ -77,7 +77,7 @@ Git is actually installed on MacOS, but we'll be reinstalling it so that we'll h
 Go to [https://git-scm.com/downloads](https://git-scm.com/downloads) and download the software for Mac.  Install git choosing all of the default options.  Once everything is installed, you should be able to run git on the command line. If it displays the usage information, then you're good to go!
 
 # Git Set Up
-## First Time Git Configurations Commands
+## First Time Git Configuration Commands
 ```git
 # Set your default text editor for commits (The most basic one is nano, but you can also use vim!)
 git config --global core.editor "Your text editor"
@@ -112,34 +112,47 @@ git config --global core.editor "code --wait"
 
 # Git Commands
 ## Git Init
-Before you can make commits or do anything else with a git repository, the repository needs to actually exist in your local directory. To create a new repository with Git, we'll use the `git init` command.
+Before you can do anything with a git repository, it needs to actually exist in your local directory, so to create a new repository with git, you need to use the `git init` command.
 
-The `init` subcommand is short for "initialize", which is helpful because it's the command that will do all of the initial setup of a repository. We'll look at what it does in just a second.
+The `init` command is short for "initialize", which is helpful because it's the command that will do all of the initial setup of a repository.
 
 Whenever you initialize a git repository, a hidden directory called `.git` is created.  The `.` in front of `git` makes the repository hidden on mac os.  This directory is your git repository!
 
 > Note:
+> 
 > Please do not edit any files in `.git`, as it might mess up the log of files in you are keeping track of.
 
-Here's a brief synopsis on each of the items in the .git directory:
+Here's a brief overview on each of the items in the .git directory:
 
-__config file__ - where all project specific configuration settings are stored.
+__config file__
+
+This is where all project specific configuration settings are stored.
 
 Git looks for configuration values in the configuration file in the Git directory (.git/config) of whatever repository you’re currently using. These values are specific to that single repository.
 
 For example, let's say you set that the global configuration for Git uses your personal email address. If you want your work email to be used for a specific project rather than your personal email, that change would be added to this file.
 
-__description file__ - this file is only used by the GitWeb program, so we can ignore it
+__description file__
 
-__hooks directory__ - this is where we could place client-side or server-side scripts that we can use to hook into Git's different lifecycle events
+this file is only used by the GitWeb program, so we can ignore it
 
-__info directory__ - contains the global excludes file
+__hooks directory__
 
-__objects directory__ - this directory will store all of the commits we make
+This is where we could place client-side or server-side scripts that we can use to hook into Git's different lifecycle events
 
-__refs directory__ - this directory holds pointers to commits (basically the "branches" and "tags")
+__info directory__
 
-Remember, other than the "hooks" directory, you shouldn't mess with pretty much any of the content in here. The "hooks" directory can be used to hook into different parts or events of Git's workflow.
+This contains the global excludes file
+
+__objects directory__
+
+This directory will store all of the commits we make
+
+__refs directory__
+
+This directory holds pointers to commits (basically the "branches" and "tags")
+
+Other than the "hooks" directory, you shouldn't mess with pretty much any of the content in here. The "hooks" directory can be used to hook into different parts or events of Git's workflow.
 
 ## Git Clone
 `git clone` allows you to clone (copy) a remote repository to be loaded locally in your computer. Typically you write the URL after the command, i.e.
