@@ -470,7 +470,6 @@ Now suppose you wanted to merge `Commit C` in `HEAD`.  This will be a normal mer
 
 Regardless of the type of merge created, its important to note that when a merge is created, a commit is created on the active branch to indicate the merge.
 
-
 ### Merge Conflicts
 Most of the time Git will be able to merge branches together without any problem. However, there are instances when a merge cannot be fully performed automatically. When a merge fails, it's called a merge conflict.
 
