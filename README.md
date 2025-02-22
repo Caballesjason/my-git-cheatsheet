@@ -320,7 +320,7 @@ To reset your local directory to the most the last commit, you can write
 git reset --hard
 ```
 > Note:
-> By type `git reset --hard`, you will be altering the files in your directory and any chances that you made after your checkpoint will disappear.
+> By typing `git reset --hard`, you will be altering the files in your directory and any changes you made after your checkpoint will disappear.
 
 ### Git Commit
 To make a commit, simply write 
