@@ -446,7 +446,9 @@ A merge is when you want to combine one branch to another.  To merge a branch in
 git merge <Branch Name>
 ```
 
-When merging two branches together, its important to note which branch is active.  This is because when you execute `git merge <Branch Name>`, it takes what ever branch you typed in `<Branch Name>` and merges it INTO the active branch.  For example, if `main` is the current branch, then
+When merging two branches together, its important to note which branch is active.  This is because when you execute `git merge <Branch Name>`, it takes what ever branch you typed in `<Branch Name>` and merges it INTO the active branch.
+
+For example, if `main` is the current branch, then
 
 ```
 git merge <Feature One>
@@ -454,7 +456,7 @@ git merge <Feature One>
 
 will take all changes from the branch `Feature One` and merge them into `main`.
 
-There are two types of merges
+There are two types of merges:
 
 __Fast-Forward Merge:__
 This occurs when the branch you want to merge into the active branch is ahead in commits.
