@@ -281,7 +281,7 @@ git log --grep="String to Find"
 ## Commits
 Below are some commands related to git commits
 
-### git Add
+### Git Add
 `git add` allows you to add files to the staging index.  To add files, simply type 
 
 ```
