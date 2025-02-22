@@ -421,15 +421,15 @@ To enter a branch to write code, write
 git checkout <Branch Name>
 ```
 
-When using `git checkout`.  The files in your local repository will automatically update, so be sure to commit any changes before checking out to another branch.
+When using `git checkout`,  The files in your local repository will automatically update, so be sure to commit any changes before checking out to another branch.
 
-You can view what branch you are on when writing `git branch`.  the branch with an asterisk is active branch.
+You can view what branch you are on when writing `git branch`.  The branch with an asterisk is active branch.
 
 
 You can also create and checkout to a new branch at the same time using the following command
 
 ```
-git checkout -b <New Branch Name> <Branch to create from> <commit SHA to create from>
+git checkout -b <New Branch Name> <Branch to Create From> <Commit SHA to Create From>
 ```
 
 To view all of you branches at once, you can write
