@@ -340,7 +340,7 @@ If you have a small commit and do not need to write a big message, you can write
 git commit -m "My Small Message"
 ```
 
-It is best practice to make commits in increments of small changes.  Do not make a commit that changes multiple components of a project.  You also want to keep commit messages short, so here are few dos and don'ts regarding commit messages.
+It is a best practice to make commits in increments of small changes.  Do not make a commit that changes multiple components of a project.  You also want to keep commit messages short, so here are few dos and don'ts regarding commit messages.
 
 __Dos__
 - do keep the message short (less than 60-ish characters)
@@ -350,9 +350,9 @@ __Dos__
 
 __Don'ts__
 - do not explain why the changes are made (more on this below)
-- do not explain how the changes are made (that's what git log -p is for!)
-- do not use the word "and"
-  - if you have to use "and", your commit message is probably doing too many changes - break the changes into separate commits
+- do not explain how the changes are made (that's what `git log -p` is for!)
+- do not use the word "and" in the commit message
+  - if you have to use "and", your commit message is probably doing too many changes, so break the changes into separate commits
 
 A tip to come up with a good commit message is to finish the phrase '_This commit will..._". However you decide to finish that phrase, use that as your commit message
 
