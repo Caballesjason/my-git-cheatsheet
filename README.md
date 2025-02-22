@@ -399,10 +399,10 @@ git branch
 To add a branch to your repository, simply write
 
 ```
-git branch <Branch Name> <commit SHA>
+git branch <Branch Name> <Commit SHA>
 ```
 
-The second value `<committ SHA>` determines what commit you would like to create a branch from.  If you don't supply a SHA for the branch, then the branch will be created on whatever commit you are currently are on.
+The second value `<Commit SHA>` determines what commit you would like to create a branch from.  If you don't supply a SHA for the branch, then the branch will be created on whatever commit you are currently are on.
 
 To delete a branch, simply type
 
