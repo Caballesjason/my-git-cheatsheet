@@ -421,7 +421,7 @@ To enter a branch to write code, write
 git checkout <Branch Name>
 ```
 
-When using `git checkout`,  The files in your local repository will automatically update, so be sure to commit any changes before checking out to another branch.
+When using `git checkout`,  the files in your local repository will automatically update, so be sure to commit any changes before checking out to another branch.
 
 You can view what branch you are on when writing `git branch`.  The branch with an asterisk is active branch.
 
